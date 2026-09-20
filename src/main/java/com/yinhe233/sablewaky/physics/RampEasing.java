@@ -27,6 +27,14 @@ public enum RampEasing {
         public double apply(final double t) {
             return 1.0D - Math.cos(t * Math.PI * 0.5D);
         }
+    },
+
+    /** Logistic growth */
+    LOGISTICS {
+        @Override 
+        public double apply(final double t) {
+            return 1.0D / (1.0D + Math.exp(-8*(t-0.5D)));
+        }
     };
 
     public abstract double apply(double t);

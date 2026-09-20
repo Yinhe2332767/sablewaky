@@ -35,10 +35,11 @@ public final class SableWakyConfig {
 
         EASING = builder
                 .comment("alpha(t) 缓动曲线：",
-                        "LINEAR     线性，起步即有明显加速度；",
-                        "SMOOTHSTEP 3t^2-2t^3，起点与终点导数为 0，最柔和（推荐）；",
-                        "SINE_IN    正弦上升，介于两者之间。")
-                .defineEnum("easing", RampEasing.SMOOTHSTEP);
+                        "LINEAR     线性；",
+                        "SMOOTHSTEP 3t^2-2t^3，起点与终点导数为 0，较柔和；",
+                        "SINE_IN    正弦上升，介于两者之间；",
+                        "LOGISTICS  1/(1+exp(-8(t-0.5))，起点终点最缓和但中间变化更快。")
+                .defineEnum("easing", RampEasing.LINEAR);
 
         HOLD_ANGULAR = builder
                 .comment("是否同时渐入角速度，即一并抑制加载瞬间的翻滚。",
